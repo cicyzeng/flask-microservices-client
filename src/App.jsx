@@ -21,11 +21,6 @@ class App extends Component {
   componentDidMount() {
     this.getUsers();
   }
-  componentWillReceiveProps(nextProps) {
-      if (this.props.formType !== nextProps.formType) {
-        this.clearForm();
-      }
-  }
   getUsers() {
     axios.get(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`)
     .then((res) => { this.setState({ users: res.data.data.users }); })
